@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payal Gaikwad | Data Science & ML Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #03020c;
+            overflow-x: hidden;
+        }
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        /* Glassmorphism Card Panels */
+        .glass-card {
+            background: rgba(8, 7, 21, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-6px);
+            background: rgba(12, 10, 31, 0.9);
+            border-color: rgba(80, 70, 229, 0.3);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.95);
+        }
+        .glass-nav {
+            background: rgba(3, 2, 12, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.01);
+        }
+        /* Brand Specific Color Elements */
+        .text-purple-brand {
+            color: #6366f1;
+        }
+        .bg-purple-brand {
+            background-color: #5046e5;
+        }
+        .bg-purple-brand:hover {
+            background-color: #4338ca;
+        }
+        /* Full-Screen Canvas Underlay Containers */
+        #canvas-container, #fairy-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        #canvas-container { z-index: -2; }
+        #fairy-canvas { z-index: 9999; }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="text-slate-400 min-h-screen selection:bg-indigo-600 selection:text-white">
+
+    <div id="canvas-container"></div>
+    <canvas id="fairy-canvas"></canvas>
+
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://drive.google.com/file/d/1El38Dyspr_bAaJLjOZ0lp2Eqt2YkdR8g/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-3 rounded-xl bg-purple-brand text-white font-bold text-xs tracking-wider uppercase shadow-xl transition-all hover:scale-105 active:scale-95 group border border-white/5">
+            <i class="fas fa-file-arrow-down text-sm group-hover:animate-bounce"></i>
+            <span>Grab Resume</span>
+        </a>
+    </div>
+
+    <nav class="glass-nav fixed top-0 left-0 w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="heading-font text-lg font-bold tracking-wider text-white">
+                PAYAL GAIKWAD
+            </a>
+            <div class="hidden md:flex space-x-8 text-xs font-semibold tracking-widest uppercase">
+                <a href="#about" class="text-slate-300 hover:text-white transition-colors">About</a>
+                <a href="#skills" class="text-slate-300 hover:text-white transition-colors">Skills</a>
+                <a href="#experience" class="text-slate-300 hover:text-white transition-colors">Experience</a>
+                <a href="#projects" class="text-slate-300 hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="text-purple-brand font-bold transition-colors">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com/214159" target="_blank" rel="noopener noreferrer" class="text-lg text-slate-300 hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/payal-gaikwad-230aa230b" target="_blank" rel="noopener noreferrer" class="text-lg text-slate-300 hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="about" class="pt-36 pb-20 px-6 max-w-7xl mx-auto min-h-screen flex flex-col justify-center relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-8 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-950 border border-white/5 text-slate-400 text-xs font-semibold tracking-wider uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-brand animate-pulse"></span>
+                    <span>System Matrix Active</span>
+                </div>
+                <h1 class="heading-font text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-none">
+                    Hi, I'm <span class="text-purple-brand">Payal Gaikwad</span>
+                </h1>
+                <p class="heading-font text-base md:text-xl font-medium text-slate-300 tracking-wide">
+                    Data Science & Machine Learning Engineer
+                </p>
+                <p class="text-slate-400 max-w-2xl text-base leading-relaxed">
+                    IT Engineering student at SVIT Nashik specializing in building end-to-end predictive models, robust MLOps deployment pipelines, and scalable statistical analysis workflows.
+                </p>
+                <div class="pt-4 flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <a href="#contact" class="px-6 py-3.5 rounded-xl bg-purple-brand text-white font-bold text-xs tracking-wider uppercase transition-all hover:scale-[1.02] border border-white/5 shadow-lg shadow-indigo-950/20">
+                        Contact
+                    </a>
+                    <a href="#projects" class="px-6 py-3.5 rounded-xl bg-slate-950/40 border border-white/5 text-slate-300 font-semibold text-xs tracking-wider uppercase hover:bg-slate-900/60 transition-all">
+                        Projects
+                    </a>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-4 glass-card p-6 rounded-2xl space-y-6">
+                <h3 class="heading-font font-bold text-xs text-white border-b border-white/5 pb-3 flex items-center gap-2 tracking-widest text-purple-brand">
+                    <i class="fas fa-graduation-cap"></i> EDUCATION PIPELINE
+                </h3>
+                <div class="space-y-4 text-xs">
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Sir Visvesvaraya Institute of Technology (SVIT)</h4>
+                        <p class="text-slate-400 mt-0.5">B.E. Information Technology (Direct Second Year Entry)</p>
+                        <p class="text-[10px] text-slate-500 mt-1"><i class="far fa-calendar mr-1"></i> 2024 — 2027 | Nashik, India</p>
+                    </div>
+                    <div class="border-t border-white/5 pt-3">
+                        <h4 class="font-bold text-white text-sm">Government Polytechnic Nashik</h4>
+                        <p class="text-slate-400 mt-0.5">Diploma in Civil Engineering</p>
+                        <p class="text-[11px] text-purple-brand font-semibold tracking-wider mt-1">Percentage: 83.66%</p>
+                        <p class="text-[10px] text-slate-500 mt-0.5"><i class="far fa-calendar mr-1"></i> 2021 — 2024 | Nashik, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="skills" class="py-20 px-6 max-w-7xl mx-auto scroll-mt-16">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+            <h2 class="heading-font text-3xl font-bold text-white tracking-tight">Technical Ecosystem</h2>
+            <div class="h-0.5 w-12 bg-purple-brand mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-card p-6 rounded-2xl space-y-4">
+                <div class="w-9 h-9 rounded-xl bg-indigo-500/5 flex items-center justify-center text-purple-brand text-base border border-indigo-500/10">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="heading-font font-bold text-sm text-white tracking-wide">Languages & Core</h3>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Python</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">SQL</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">XGBoost</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Scikit-Learn</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Pandas</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">NumPy</span>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl space-y-4">
+                <div class="w-9 h-9 rounded-xl bg-indigo-500/5 flex items-center justify-center text-purple-brand text-base border border-indigo-500/10">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3 class="heading-font font-bold text-sm text-white tracking-wide">MLOps & Infrastructure</h3>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Streamlit</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Flask</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Hugging Face</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Git/GitHub</span>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl space-y-4 lg:col-span-2">
+                <div class="w-9 h-9 rounded-xl bg-indigo-500/5 flex items-center justify-center text-purple-brand text-base border border-indigo-500/10">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="heading-font font-bold text-sm text-white tracking-wide">Data Science</h3>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Supervised Learning</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Data Preprocessing</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Feature Engineering</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Imbalanced Data Handling</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Model Interpretability (SHAP)</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Cross-Validation</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-slate-950 rounded border border-white/5 text-slate-300">Power BI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 px-6 max-w-7xl mx-auto scroll-mt-16">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+            <h2 class="heading-font text-3xl font-bold text-white tracking-tight">Professional Footprint</h2>
+            <div class="h-0.5 w-12 bg-purple-brand mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="space-y-12 relative before:absolute before:inset-0 before:left-4 md:before:left-1/2 before:w-px before:bg-slate-900">
+            <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center group">
+                <div class="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-indigo-500 -translate-x-1.5 border-4 border-[#03020c] z-10 transition-transform group-hover:scale-150"></div>
+                
+                <div class="w-full md:w-[45%] pl-10 md:pl-0 md:text-right order-2 md:order-1">
+                    <span class="text-xs font-semibold text-purple-brand uppercase tracking-wider">Jan 2026 — Feb 2026</span>
+                    <h3 class="heading-font text-lg font-bold text-white mt-0.5">ScaleFull Technologies LLP</h3>
+                    <p class="text-xs text-slate-400">Data Science Intern</p>
+                </div>
+                
+                <div class="w-full md:w-[48%] glass-card p-6 rounded-2xl ml-10 md:ml-0 order-3 md:order-2 mt-2 md:mt-0">
+                    <ul class="text-xs text-slate-400 space-y-2.5 list-disc list-inside marker:text-indigo-500">
+                        <li>Cleaned and validated industrial sensor data using Python and SQL; processed 50K+ records ensuring 99%+ data quality for ML model training.</li>
+                        <li>Built XGBoost classifier achieving 97.3% cross-validation accuracy on imbalanced data (3.4% failure rate).</li>
+                        <li>Integrated SHAP for model interpretability and deployed to Streamlit production dashboard.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center group">
+                <div class="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-indigo-500 -translate-x-1.5 border-4 border-[#03020c] z-10 transition-transform group-hover:scale-150"></div>
+                
+                <div class="w-full md:w-[48%] glass-card p-6 rounded-2xl ml-10 md:ml-0 order-3 md:order-1 mt-2 md:mt-0 md:text-right">
+                    <ul class="text-xs text-slate-400 space-y-2.5 list-disc list-inside marker:text-indigo-500 md:list-none">
+                        <li>Created 4 interactive dashboards using Streamlit and Power BI for real-time monitoring.</li>
+                        <li>Implemented Sentiment Analysis on 5,000+ records using NLP; classified with 92% accuracy.</li>
+                    </ul>
+                </div>
+
+                <div class="w-full md:w-[45%] pl-10 md:pl-0 order-2 md:order-2">
+                    <span class="text-xs font-semibold text-purple-brand uppercase tracking-wider">Oct 2025 — Nov 2025</span>
+                    <h3 class="heading-font text-lg font-bold text-white mt-0.5">Future Interns</h3>
+                    <p class="text-xs text-slate-400">Data Science and Analytics Intern</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 px-6 max-w-7xl mx-auto scroll-mt-16">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+            <h2 class="heading-font text-3xl font-bold text-white tracking-tight">Featured Implementations</h2>
+            <div class="h-0.5 w-12 bg-purple-brand mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="heading-font text-[10px] text-purple-brand font-bold tracking-wider uppercase">Predictive Maintenance</span>
+                        <a href="https://predication-maintence-for-industrial-machines-fheubeyctpnryru7.streamlit.app/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white text-sm transition-colors"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="heading-font text-lg font-bold text-white">Predict Maint AI</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Dual-stage model pipeline leveraging 5-fold cross-validation arrays to forecast tool anomalies inside localized fault conditions ($R^2=0.89$).
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/5 flex flex-wrap gap-1">
+                    <span class="text-[9px] px-2 py-0.5 bg-slate-950 rounded text-slate-400 border border-white/5">XGBoost</span>
+                    <span class="text-[9px] px-2 py-0.5 bg-slate-950 rounded text-slate-400 border border-white/5">SHAP</span>
+                    <span class="text-[9px] px-2 py-0.5 bg-slate-950 rounded text-slate-400 border border-white/5">Streamlit</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="heading-font text-[10px] text-purple-brand font-bold tracking-wider uppercase">Human Resource Architecture</span>
+                        <a href="https://employee-attrition-risk-analysis-and-lyd4.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white text-sm transition-colors"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="heading-font text-lg font-bold text-white">Employee Attrition Decoder</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        An analysis workflow evaluating 1,470 records over 35 features. Deployed to balance custom categorical data via optimized threshold processing.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/5 flex flex-wrap gap-1">
+                    <span class="text-[9px] px-2 py-0.5 bg-slate-950 rounded text-slate-400 border border-white/5">Flask</span>
+                    <span class="text-[9px] px-2 py-0.5 bg-slate-950 rounded text-slate-400 border border-white/5">XGBoost</span>
+                    <span class="text-[9px] px-2 py-0.5 bg-slate-950 rounded text-slate-400 border border-white/5">Python</span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="heading-font text-[10px] text-purple-brand font-bold tracking-wider uppercase">Anomaly Isolation</span>
+                        <a href="https://github.com/214159/Fraud-Detection-Using-Supervised-Machine-Learning" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white text-sm transition-colors"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3 class="heading-font text-lg font-bold text-white">Fraud Analytics Under Supervised ML</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Machine learning setup trained over heavily minoritized processing profiles managing transaction records via advanced SMOTE validation.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/5 flex flex-wrap gap-1">
+                    <span class="text-[9px] px-2 py-0.5 bg-slate-950 rounded text-slate-400 border border-white/5">Scikit-Learn</span>
+                    <span class="text-[9px] px-2 py-0.5 bg-slate-950 rounded text-slate-400 border border-white/5">SMOTE</span>
+                    <span class="text-[9px] px-2 py-0.5 bg-slate-950 rounded text-slate-400 border border-white/5">Python</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-6 max-w-7xl mx-auto scroll-mt-16">
+        <div class="glass-card rounded-3xl p-8 md:p-12 border border-white/5">
+            <div class="text-center max-w-4xl mx-auto space-y-4">
+                <div class="heading-font text-xs text-purple-brand tracking-widest font-bold uppercase">
+                    Get In Touch
+                </div>
+                <h2 class="heading-font text-3xl font-bold text-white tracking-tight">Let's connect.</h2>
+                <p class="text-xs text-slate-400 max-w-xl mx-auto leading-relaxed">
+                    Open for Data Science roles, data analysis collaborations, and production MLOps pipeline deployment discussions.
+                </p>
+                
+                <div class="pt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 text-xs">
+                    <a href="mailto:payalgaikwad2805@gmail.com" class="p-5 rounded-xl bg-slate-950/40 border border-white/5 hover:border-purple-brand/40 text-slate-300 transition-all block">
+                        <i class="fas fa-envelope text-lg text-purple-brand mb-2 block"></i>
+                        <span class="font-semibold text-white block mb-0.5">Email</span>
+                        
+                    </a>
+                    <a href="https://linkedin.com/in/payal-gaikwad-230aa230b" target="_blank" rel="noopener noreferrer" class="p-5 rounded-xl bg-slate-950/40 border border-white/5 hover:border-purple-brand/40 text-slate-300 transition-all block">
+                        <i class="fab fa-linkedin text-lg text-purple-brand mb-2 block"></i>
+                        <span class="font-semibold text-white block mb-0.5">LinkedIn</span>
+                        
+                    </a>
+                    <a href="tel:+919172861326" class="p-5 rounded-xl bg-slate-950/40 border border-white/5 hover:border-purple-brand/40 text-slate-300 transition-all block">
+                        <i class="fas fa-phone text-lg text-purple-brand mb-2 block"></i>
+                        <span class="font-semibold text-white block mb-0.5">Mobile</span>
+                      
+                    </a>
+                    <a href="https://github.com/214159" target="_blank" rel="noopener noreferrer" class="p-5 rounded-xl bg-slate-950/40 border border-white/5 hover:border-purple-brand/40 text-slate-300 transition-all block">
+                        <i class="fab fa-github text-lg text-purple-brand mb-2 block"></i>
+                        <span class="font-semibold text-white block mb-0.5">GitHub Portfolio</span>
+                    </a>
+                    <div class="p-5 rounded-xl bg-slate-950/40 border border-white/5 text-slate-300 block sm:col-span-2 lg:col-span-1">
+                        <i class="fas fa-map-marker-alt text-lg text-purple-brand mb-2 block"></i>
+                        <span class="font-semibold text-white block mb-0.5">Location</span>
+                        Nashik, Maharashtra
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/5 py-8 text-center text-[11px] text-slate-600 space-y-2">
+        <p>&copy; 2026 Payal Gaikwad. Portfolio build powered by HTML5, Tailwind CSS & Three.js.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // --- Background Space Canvas Particle Setup ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 5;
+
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        const particlesCount = window.innerWidth < 768 ? 200 : 500;
+        const positions = new Float32Array(particlesCount * 3);
+        
+        for(let i=0; i<particlesCount * 3; i++) {
+            positions[i] = (Math.random() - 0.5) * 13;
+        }
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        const material = new THREE.PointsMaterial({
+            size: 0.025,
+            color: 0x5046e5,
+            transparent: true,
+            opacity: 0.15,
+            blending: THREE.AdditiveBlending
+        });
+
+        const particleSystem = new THREE.Points(geometry, material);
+        scene.add(particleSystem);
+
+        let mouseX = 0, mouseY = 0;
+        window.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) - 0.5;
+            mouseY = (e.clientY / window.innerHeight) - 0.5;
+        });
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        const clock = new THREE.Clock();
+        const animate = () => {
+            requestAnimationFrame(animate);
+            const elapsedTime = clock.getElapsedTime();
+            
+            particleSystem.rotation.y = elapsedTime * 0.008;
+            particleSystem.rotation.x = elapsedTime * 0.004;
+            
+            particleSystem.position.x += (mouseX * 0.2 - particleSystem.position.x) * 0.05;
+            particleSystem.position.y += (-mouseY * 0.2 - particleSystem.position.y) * 0.05;
+
+            renderer.render(scene, camera);
+        };
+        animate();
+
+        // --- Interactive Mouse Particle Trail ---
+        const fairyCanvas = document.getElementById("fairy-canvas");
+        const ctx = fairyCanvas.getContext("2d");
+
+        let particlesArray = [];
+
+        function resizeFairyCanvas() {
+            fairyCanvas.width = window.innerWidth;
+            fairyCanvas.height = window.innerHeight;
+        }
+        window.addEventListener("resize", resizeFairyCanvas);
+        resizeFairyCanvas();
+
+        class FairyParticle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 2.5 + 1;
+                this.speedX = (Math.random() - 0.5) * 1.0;
+                this.speedY = (Math.random() - 0.5) * 1.0 - 0.3; 
+                this.color = `rgba(99, 102, 241, ${Math.random() * 0.6 + 0.4})`;
+                this.alpha = 1;
+                this.decay = Math.random() * 0.015 + 0.01;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.alpha -= this.decay;
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = "#5046e5";
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        window.addEventListener("mousemove", (e) => {
+            for (let i = 0; i < 2; i++) {
+                particlesArray.push(new FairyParticle(e.clientX, e.clientY));
+            }
+        });
+
+        function handleFairyParticles() {
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                if (particlesArray[i].alpha <= 0) {
+                    particlesArray.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        function runFairyLoop() {
+            ctx.clearRect(0, 0, fairyCanvas.width, fairyCanvas.height);
+            handleFairyParticles();
+            requestAnimationFrame(runFairyLoop);
+        }
+        runFairyLoop();
+    </script>
+</body>
+</html>
